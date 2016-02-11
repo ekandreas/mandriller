@@ -1,7 +1,7 @@
 {
     "name": "ekandreas/mandriller",
     "type": "wordpress-plugin",
-    "version": "0.1",
+    "version": "0.1.1",
     "description": "WordPress plugin to reuse mail functions",
     "keywords": ["mandrill", "wordpress", "plugin"],
     "license": "MIT",

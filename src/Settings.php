@@ -6,7 +6,6 @@ namespace Mandriller;
  */
 class Settings
 {
-
     protected $key;
     protected $username;
 
@@ -15,11 +14,14 @@ class Settings
 
     public function __construct()
     {
-        $this->key = papi_get_option('mandrill_key');
-        $this->username = papi_get_option('mandrill_from');
-
-ENV!
-
+        $this->key = env('MANDRILL_KEY');
+        if (!$this->key) {
+            throw new \Exception("MANDRILL_KEY is missing in .env");
+        }
+        $this->username = env('MANDRILL_USERNAME');
+        if (!$this->username) {
+            throw new \Exception("MANDRILL_USERNAME is missing in .env");
+        }
         $this->from_email = get_bloginfo('admin_email');
         $this->from_name = get_bloginfo('title');
     }
